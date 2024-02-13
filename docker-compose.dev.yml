@@ -6,6 +6,8 @@ services:
     command: npm run dev
     volumes:
       - ./server/src/:/app/src/
+    env_file:
+      - ./global.env
   mongodb:
     image: mongo
     volumes:
@@ -14,6 +16,8 @@ services:
     build: ./client
     command: npm run start
     ports:
-      - 8080:3000
+      - 3000:3000
     volumes:
       - ./client/src/:/app/src/
+    env_file:
+      - ./global.env
